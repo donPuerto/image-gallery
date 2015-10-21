@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -12,5 +13,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('users.login');
 });
+
+
+Route::get('gallery/list','GalleryController@viewGalleryList');
+Route::post('gallery/save','GalleryController@saveGallery');
+Route::get('gallery/view/{id}','GalleryController@viewGalleryPics');
+Route::post('gallery/do-upload','GalleryController@doImageUpload');
