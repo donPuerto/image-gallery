@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Gallery;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -10,6 +11,13 @@ use Illuminate\Support\Facades\Validator;
 
 class GalleryController extends Controller
 {
+
+    public function __construct(){
+
+        $this->middleware('auth');
+
+
+    }
     public function viewGalleryList()
     {
 
@@ -38,7 +46,7 @@ class GalleryController extends Controller
 
         //Saving Gallery File
         $gallery->name = $request->input('gallery_name');
-        $gallery->created_by = 1;
+        $gallery->created_by = Auth::user()->id;
         $gallery->published = 1;
         $gallery->save();
 

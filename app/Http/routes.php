@@ -16,6 +16,14 @@ Route::get('/', function () {
     return view('users.login');
 });
 
+Route::post('user/do-login', 'Auth\AuthController@doLogin');
+Route::get('user/logout', function(){
+
+    Auth::logout();
+    return redirect('/');
+
+});
+
 
 Route::get('gallery/list','GalleryController@viewGalleryList');
 Route::post('gallery/save','GalleryController@saveGallery');

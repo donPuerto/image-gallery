@@ -18,16 +18,28 @@
 
 </head>
 <body>
-
+@yield('navigation')
 <div class="container">
+
+
+    <div class="row">
+
+        @if(Session::has('flash_message'))
+            <div class="alert alert-dismissable alert-success">{{ Session::get('flash_message') }} </div>
+        @endif
+
+        @if(Session::has('flash_error'))
+             <div class="alert alert-dismissable alert-danger">{{ Session::get('flash_error') }} </div>
+        @endif
+
+    </div>
     @yield('content')
+
+    <footer>
+        @yield('footer')
+    </footer>
 </div>
 
-
-
-@yield('footer')
-
-</div>
 
 <script src={{ asset('js/vendor/vendor.js') }}></script>
 <script src="{{ elixir('js/all.js') }}"></script>

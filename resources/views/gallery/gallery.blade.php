@@ -2,9 +2,11 @@
 
 
 @section('title_name')
-
     Gallery Section
+@endsection
 
+@section('navigation')
+    @include('include.navigation')
 @endsection
 
 
