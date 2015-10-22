@@ -18,7 +18,8 @@ elixir(function(mix) {
         "bootstrap.min.css",
         "ripples.css",
         "material.css",
-        "roboto.css"
+        "roboto.css",
+        "main.css"
     ]);
 
     mix.scripts([

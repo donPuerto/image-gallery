@@ -8497,4 +8497,11 @@ hr.on-light {
   src: local('RobotoDraft Italic'), local('RobotoDraft-Italic'), local('Roboto-Italic'), url(../fonts/RobotoDraftItalic.woff2) format('woff2'), url(../fonts/RobotoDraftItalic.woff) format('woff');
 }
 /*# sourceMappingURL=roboto.css.map */
+.dropzone{
+
+    margin-top: 50px;
+    border-style: dashed;
+    line-height: 40px;
+
+}
 /*# sourceMappingURL=all.css.map */

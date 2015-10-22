@@ -14,6 +14,7 @@
     <meta name="author" content="name">
     <meta name="description" content="description here">
     <meta name="keywords" content="keywords,here">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.2.0/min/dropzone.min.css">
     <link rel="stylesheet" href="{{ elixir('css/all.css') }}">
 
 </head>
@@ -41,7 +42,8 @@
 </div>
 
 
-<script src={{ asset('js/vendor/vendor.js') }}></script>
-<script src="{{ elixir('js/all.js') }}"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.2.0/min/dropzone.min.js"></script>
+<script type="text/javascript" src={{ asset('js/vendor/vendor.js') }}></script>
+<script type="text/javascript" src="{{ elixir('js/all.js') }}"></script>
 </body>
 </html>
