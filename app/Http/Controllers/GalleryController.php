@@ -87,6 +87,8 @@ class GalleryController extends Controller
 
         ]);
 
+        return $image;
+
 
     }
 }
