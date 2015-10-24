@@ -19,11 +19,12 @@ elixir(function(mix) {
         "ripples.css",
         "material.css",
         "roboto.css",
+        "lightbox.css",
         "main.css"
     ]);
 
     mix.scripts([
-
+        "lightbox.js",
         "app.js"
 
     ]);

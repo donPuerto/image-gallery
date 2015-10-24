@@ -43,6 +43,7 @@
 
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.2.0/min/dropzone.min.js"></script>
+{{--Compiled Jquery and bootstrap Core--}}
 <script type="text/javascript" src={{ asset('js/vendor/vendor.js') }}></script>
 <script type="text/javascript" src="{{ elixir('js/all.js') }}"></script>
 </body>

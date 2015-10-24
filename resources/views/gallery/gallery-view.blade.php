@@ -7,6 +7,8 @@
 
 @endsection
 
+
+
 <div class="container">
     <dive class="row">
         <div class="col-md-12">
@@ -22,7 +24,35 @@
 
 </div>
 
-r
+
+<div class="container">
+   <div class="row">
+        <div class="col-md-12">
+            <div id="gallery-images">
+                <ul>
+                    @foreach($gallery->images as $image)
+                        <li>
+                            <a href="{{ url($image->file_path) }}" target="_blank">
+                                <img src="{{ url($image->file_path) }}" >
+                            </a>
+                        </li>
+                    @endforeach
+
+                </ul>
+
+
+            </div>
+        </div>
+
+   </div>
+
+
+</div>
+
+
+
+
+
 
 @section('content')
    <div class="row">
