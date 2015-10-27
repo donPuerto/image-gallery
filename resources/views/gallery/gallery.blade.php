@@ -39,8 +39,8 @@
 
                             </span>
                         </td>
-                        <td><a href="{{ url('gallery/view/'.$gallery->id) }}">View</a></td>
-
+                        <td><a href="{{ url('gallery/view/'.$gallery->id) }}">View</a>/
+                       <a href="{{ url('gallery/delete/'.$gallery->id) }}">Delete</a></td>
                     </tr>
                 @endforeach
                 </tbody>

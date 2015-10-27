@@ -29,4 +29,5 @@ Route::post('image/do-upload','GalleryController@doImageUpload');
 Route::get('gallery/list','GalleryController@viewGalleryList');
 Route::post('gallery/save','GalleryController@saveGallery');
 Route::get('gallery/view/{id}','GalleryController@viewGalleryPics');
+Route::get('gallery/delete/{id}','GalleryController@deleteGallery');
 Route::post('gallery/do-upload','GalleryController@doImageUpload');

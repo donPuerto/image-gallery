@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use Intervention\Image\Facades\Image;
+
+
 
 class GalleryController extends Controller
 {
@@ -21,7 +24,7 @@ class GalleryController extends Controller
     public function viewGalleryList()
     {
 
-        $gallery = Gallery::all();
+        $gallery = Gallery::where('created_by',Auth::user()->id)->get();
 
         return view('gallery.gallery',compact('gallery'));
     }
@@ -70,8 +73,23 @@ class GalleryController extends Controller
         //set the standard file name
         $filename = uniqid() . $file->getClientOriginalName();
 
+
+
         //move the file into the location
+        if (!file_exists('gallery/images')){
+            mkdir('gallery/images',0777, true);
+
+        }
+
         $file->move('gallery/images',$filename);
+
+
+        if (!file_exists('gallery/images/thumbs')){
+            mkdir('gallery/images/thumbs',0777, true);
+
+        }
+
+        $thumb = Image::make('gallery/images/' . $filename )->resize(240,160)->save('gallery/images/thumbs/' . $filename,60);
 
 
         //save the image details into database
@@ -91,6 +109,38 @@ class GalleryController extends Controller
 
 
     }
+
+    public function deleteGallery($id){
+
+        //load gallery
+        $currentGallery = Gallery::findOrFail($id);
+
+        //Checking ownership
+       if ($currentGallery->created_by != Auth::User()->id){
+           abort('403', 'You are not allowed to delete this gallery');
+
+       }
+
+        //return "Passed by";
+        //get the images
+        $images = $currentGallery->images;
+
+
+        //delete the images
+        foreach($images as $image){
+
+            unlink(public_path($image->file_path));
+            unlink(public_path( '/gallery/images/thumbs/' . $image->file_name));
+        }
+
+        /*Delete DB images*/
+        $currentGallery->images()->delete();
+        $currentGallery->delete();
+
+        return redirect()->back();
+
+    }
+
 }
 
 

@@ -21,7 +21,7 @@ var handleDropzoneFileUpload = {
 
 
       var imageList = $('#gallery-images ul');
-      var imageScr = baseUrl + '/' + response.file_path;
+      var imageScr = baseUrl + '/gallery/images/thumbs/' + response.file_name;
       $(imageList).append(' <li> <a href = "' + imageScr + '"  ><img src="' + imageScr + '"> </a> <li> ');
    }
 
